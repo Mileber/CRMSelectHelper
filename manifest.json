@@ -1,0 +1,63 @@
+﻿{
+	"name": "张三丰-助手",
+	"version": "1.0.2",
+	"icons": {
+		"128": "icon.png"
+	},
+	"description": "张三丰助手，可自定义时间开启、适用于蹲守资源。",
+	"browser_action": {
+		"default_icon": {
+			"19": "icon.png",
+			"38": "icon.png"
+		},
+		"default_title": "chrome插件",
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"page": "background.html"
+	},
+	"content_security_policy":"script-src 'self' 'unsafe-eval' https://maps.googleapis.com/; object-src 'self'",
+	"permissions": [
+		"tabs",
+		"storage",
+		"cookies",
+		"*://*/*"
+	],
+	"content_scripts": [
+		{
+			"matches": [
+				"*://laputa.alibaba-inc.com/*"
+			],
+			"js": [
+				"lib/jquery-3.3.1.min.js",
+				"js/tts.js",
+				"js/token_check.js",
+				"sr/function.js",
+				"js/subject_Investigatio.js"
+			],
+			"css": [
+				"sr/style.css",
+				"css/Custom.css"
+			],
+			"run_at": "document_start",
+			"all_frames": false
+		},
+		{
+			"matches": [
+				"*://crm.alibaba-inc.com/noah/opportunity/pickInfo.cxul*"
+			],
+			"js": [
+				"lib/jquery-3.3.1.min.js",
+				"sr/function.js",
+				"js/click_affirm.js"
+			],
+			"css": [
+				"sr/style.css",
+				"css/Custom.css"
+			],
+			"run_at": "document_start",
+			"all_frames": false
+		}
+	],
+	"manifest_version": 2
+}

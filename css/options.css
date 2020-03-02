@@ -1,0 +1,12 @@
+.btn.btn-default[name=search] {
+    height: 34px;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+*{
+    outline: none;
+}
